@@ -10,16 +10,16 @@ void main() {
   fColor = vColor; 
 
   mat4 translate = mat4(
-    1.0, 0.0, 0.0, -0.3,
+    1.0, 0.0, 0.0, -0.7,
     0.0, 1.0, 0.0, 0.0,
     0.0, 0.0, 1.0, 0.0,
     0.0, 0.0, 0.0, 1.0
   );
 
-  mat4 translate2 = mat4(
-    1.0, 0.0, 0.0, -0.6,
-    0.0, 1.0, 0.0, 0.0,
-    0.0, 0.0, 1.0, 0.0,
+  mat4 scale = mat4(
+    0.7, 0.0, 0.0, 0.0,
+    0.0, 0.7, 0.0, 0.0,
+    0.0, 0.0, 0.7, 0.0,
     0.0, 0.0, 0.0, 1.0
   );
 
@@ -30,6 +30,6 @@ void main() {
     0.0, 0.0, 0.0, 1.0
   );
 
-  gl_Position = vec4(vPosition, 0.0, 1.0) * translate * rotate * translate2;
+  gl_Position = rotate * vec4(vPosition, 0.0, 1.0) * translate * scale;
   // gl_Position = aPosition;
 }
